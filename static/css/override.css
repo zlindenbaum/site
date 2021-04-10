@@ -1,0 +1,26 @@
+/* .columns { */
+/* /1* -webkit-columns: 2rem auto; *1/ */
+
+/*   list-style: none; */
+/*   display: inline-grid; */
+/*   grid-template-rows: repeat(10, auto); */
+/*   grid-auto-flow: column; */
+/* } */
+
+/* .columns > * { */
+/*   padding: .25em; */
+/* } */
+
+
+.page-heading {
+  text-align: center;
+}
+
+.page-mainheading {
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.page-subheading {
+  font-size: 15pt
+}

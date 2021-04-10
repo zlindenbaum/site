@@ -7,7 +7,8 @@ cleanDestinationDir = true
 metaDataFormat = "yaml"
 pygmentCodeFences = true
 pygmentsUseClasses = true
-theme = "beautiful"
+# theme = "beautiful"
+theme = "eureka"
 title = "THE PLATYPUS AFFILIATED SOCIETY"
 [author]
 facebook = "platypusreview"
@@ -114,7 +115,7 @@ weight = 2.5
 [[languages.en.menu.main]]
 identifier = "tpr"
 name = "The Platypus Review"
-url = "#"
+url = "/platypus-review"
 weight = 2
 [[languages.en.menu.main]]
 identifier = "latest"

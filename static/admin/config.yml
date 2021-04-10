@@ -1,6 +1,9 @@
+# backend:
+#   name: git-gateway
+#   branch: master # defaults to master
+
 backend:
-  name: git-gateway
-  branch: master # defaults to master
+  name: test-repo
 
 media_folder: "static/img" # images
 
@@ -52,7 +55,7 @@ collections:
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Show the date", name: "showthedate", default: false}
       - {label: "Draft", name: "draft", default: true}
-      - {label: "Show the date", name: "showthedate", default: false}
+      # - {label: "Show the date", name: "showthedate", default: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "media" ## media pages
@@ -65,7 +68,7 @@ collections:
       - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Speaker(s)", name: "speakers", widget: "list"} # need relational widget
-      - {label: "Media Type", name: "media-type", widget: "select", options:["video", "audio"]}
+      # - {label: "Media Type", name: "media-type", widget: "select", options:["video", "audio"]}
       - {label: "Series", name: "series", widget: "list", required: false}
       - {label: "Media File", name: "media", widget: "list", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
