@@ -1,0 +1,108 @@
+.footnotes {
+  margin-top: 4em;
+  font-size: 85%;
+}
+
+.footnotes hr {
+  margin-bottom: 1em;
+}
+
+.footnotes li {
+  margin: 0 0 12px;
+}
+
+a.footnote-backref::before {
+  content: ' ';
+}
+
+#content {
+  position: relative;
+}
+
+.floating-footnotes {
+  width: 20em !important;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  /* The entire main article content, + the margins */
+  left: calc(100% + 2em);
+}
+
+.floating-footnotes hr {
+  display: none;
+}
+
+.floating-footnotes li[role=doc-endnote] p:last-child {
+  text-align: left !important;
+  margin-bottom: 0;
+}
+
+article table {
+  margin: 2.5em auto;
+}
+
+article table td:not(:first-child), article table th:not(:first-child) {
+  padding-left: 2em;
+}
+
+article table thead tr {
+  border-bottom: 1px solid #00223E;
+}
+
+article table {
+  border-bottom: 1px solid #00223E;
+}
+
+article table thead th {
+  padding-bottom: 0.5em;
+  font-family: 'Lora', serif;;
+}
+
+article table tbody tr:first-child td {
+  padding-top: 0.75em;
+}
+
+article table tbody tr:last-child td {
+  padding-bottom: 0.75em;
+}
+
+article table td, article table th {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  vertical-align: top;
+}
+
+.content-container {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.content-container-narrow-pad {
+  padding: 0.5em;
+}
+
+
+.article-pad-v {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.article-body h2,.article-body h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+#content p {
+  text-align: justify;
+	hyphens: auto;
+}
+
+
+img.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

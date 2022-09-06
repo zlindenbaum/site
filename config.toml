@@ -8,8 +8,10 @@ metaDataFormat = "yaml"
 pygmentCodeFences = true
 pygmentsUseClasses = true
 # theme = "beautiful"
-theme = "eureka"
+theme = "plat"
 title = "THE PLATYPUS AFFILIATED SOCIETY"
+summaryLength = 50
+
 [author]
 facebook = "platypusreview"
 name = "The Platypus Affiliated Society"

@@ -1,0 +1,5 @@
+<ul style="columns: {{ .Get 0 }}">{{ .Inner }}
+  {{ range .Page.Pages }}
+  <li><a href="{{ .Permalink | relURL }}">#{{ .Title }}</a></li>
+  {{ end }}
+</ul>

@@ -1,0 +1,31 @@
+<article id="main" style="width: 700px">
+  {{ with .Params.thumbnail }}
+  <img style="width: 100%; height: 400px; object-fit: cover;" src="{{ . | relURL }}"></img>
+  <br/>
+  <br/>
+  {{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ range .Params.authors }}
+  <h3><a style="color: inherit; text-decoration: inherit;" href ="{{ "/authors/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></h3>
+  {{ end }}
+  <p style="text-align: right">{{ with .Params.issue }}<a style="color: inherit" href="{{ "/issue/" | relLangURL }}{{ . }}">Platypus Review {{ . }}</a> | {{ end }}{{ with .Date }}{{ time.Format "January 2006" . }}{{ end }}</p>
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    {{ .Content }}
+  </div>
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ with $related }}
+    <h3>See Also</h3>
+    <ul>
+      {{ range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      <!-- {{ .Render "summary" }} -->
+      {{ end }}
+    </ul>
+    {{ end }}
+  <br/>
+  {{ with .Site.DisqusShortname }}
+  <div>
+    {{ template "_internal/disqus.html" . }}
+  </div>
+  {{ end }}
+</article>

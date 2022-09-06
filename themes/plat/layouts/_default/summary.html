@@ -1,0 +1,40 @@
+<div class="col">
+<div class="card mb-3">
+	<div class="row g-0">
+		{{ if or (isset .Params "thumbnail") (isset .Scratch.Values "img") }}
+		<div class="col-md-4">
+			<a href="{{ .Permalink }}"><img style="height: 300px; width:100%; object-fit:cover;" src="{{ if isset .Scratch.Values "img" }}{{ .Scratch.Get "img" | relURL }}{{ else }}{{ .Params.thumbnail | relURL }}{{ end }}"></a>
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<a href="{{ .Permalink }}" style="text-decoration: inherit; color: inherit"><h4 class="card-title">{{ .Title }}</h4></a>
+				{{ range .Params.authors }}<a style="text-decoration: inherit; color: inherit;" href="{{ "/authors/" |relLangURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;&nbsp;&nbsp;{{ end }}
+				{{ with .Params.authors }}
+				<hr/>
+				{{ end }}
+				<p class="card-text">
+				{{ .Summary }}
+				{{ if .Truncated }}
+					<a href="{{ .Permalink }}">Read more...</a>
+				{{ end }}
+				</p>
+			</div>
+		</div>
+		{{ else }}
+		<div class="card-body">
+			<a href="{{ .Permalink }}" style="text-decoration: inherit; color: inherit"><h4 class="card-title">{{ .Title }}</h4></a>
+			{{ range .Params.authors }}<a style="text-decoration: inherit; color: inherit;" href="{{ "/authors/" |relLangURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;&nbsp;&nbsp;{{ end }}
+			{{ with .Params.authors }}
+			<hr/>
+			{{ end }}
+			<p class="card-text">
+			{{ .Summary }}
+			{{ if .Truncated }}
+				<a href="{{ .Permalink }}">Read more...</a>
+			{{ end }}
+			</p>
+		</div>
+		{{ end }}
+	</div>
+</div>
+</div>

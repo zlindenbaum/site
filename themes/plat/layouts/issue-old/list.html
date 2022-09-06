@@ -1,0 +1,19 @@
+{{ define "main" }}
+	{{ partial "breadcrumb" . }}
+	<main>
+		{{ if or .Title .Content }}
+		<div>
+			{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
+			{{ with .Content }}<div>{{ . }}</div>{{ end }}
+		</div>
+		{{ end }}
+
+			<ul style="columns: 3">
+			{{ range .Pages }}
+			<li><a href="{{ .Permalink | relURL }}">#{{ .Title }}</a></li>
+			{{ end }}
+			</ul>
+		{{ partial "pagination.html" . }}
+	</main>
+{{ partial "sidebar.html" . }}
+{{ end }}

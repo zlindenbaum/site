@@ -23,8 +23,9 @@ aliases: [
 ]
 title: Chicago
 type: chapter
-
+thumbnail: img/banners/chicago.png
 ---
 ## Weekly Coffee Break: To Be Announced
 
 **5:00 pm -- 6:00 pm** Second Floor Lounge of Port Center Café, University Hall, 601 South Morgan Street
+

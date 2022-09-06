@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ .Title }}</title>
+	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+	{{ with .OutputFormats.Get "RSS" -}}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{- end }}
+	<!-- <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | relURL }}"> -->
+	<link rel="stylesheet" href="{{ "css/bootstrap.min.css" | relURL }}">
+	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+	{{ with .Site.GetPage "/chapters" }}
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-md-0">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto flex-wrap justify-content-center">
+					{{ range sort .Pages }}
+					{{ if lt (len .Pages) 1 }}
+					<li class="nav-item"><a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+					{{ else }}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ .Name }}</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+							{{ range .Pages }}
+							<li><a class="dropdown-item" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+							{{ end }}
+						</ul>
+					</li>
+					{{ end }}
+					{{ end }}
+				</ul>
+			</div>
+		</div>
+	</nav>
+	{{ end }}
+	<div class="container" style="width: 1000px">
+	{{ partial "header" . }}
+	{{ block "main" . }}{{ end }}
+	{{ partial "footer" . }}
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+	<script src="{{ "/js/bootstrap-bundle.min.js" | relURL }}"></script>
+	<script type="module" src="{{ "/js/main.js" | relURL }}"></script>
+</body>
+</html>
